@@ -35,55 +35,64 @@ HEADER_TITLE = 'ReactPy-Navbar'
 
 
 @component
+def NavItem(label: str, path: str, is_active: bool = False):
+    attribute = {'href': path}
+    if is_active:
+        attribute.update(
+            {'class': 'nav-link active', 'aria-current': 'page'},
+        ),
+    else:
+        attribute.update(
+            {'class': 'nav-link'},
+        ),
+
+    return html.div(
+        html.li(
+            {'class': 'nav-item'},
+            html.a(attribute, label),
+        ),
+    )
+
+
+@component
+def NavBar(nav_attr: dict):
+    return html.nav(
+        {'class': 'navbar navbar-dark navbar-expand-lg bg-dark'},
+        html.div(
+            {'class': 'container-fluid'},
+            html.a({'class': 'navbar-brand text-primary', 'href': '#'}, 'ReactPy-Navbar'),
+            html.button(
+                {
+                    'class': 'navbar-toggler',
+                    'type': 'button',
+                    'data-bs-toggle': 'collapse',
+                    'data-bs-target': '#navbarSupportedContent',
+                    'aria-controls': 'navbarSupportedContent',
+                    'aria-expanded': 'false',
+                    'aria-label': 'Toggle navigation',
+                },
+                html.span({'class': 'navbar-toggler-icon'}),
+            ),
+            html.div(
+                {'class': 'collapse navbar-collapse', 'id': 'navbarSupportedContent'},
+                html.ul(
+                    {'class': 'navbar-nav me-auto mb-2 mb-lg-0'},
+                    NavItem('Home', '/', nav_attr.get('Home', False)),
+                    NavItem('Blog', '/blog', nav_attr.get('Blog', False)),
+                ),
+            ),
+        ),
+    )
+
+
+@component
 def Home():
     return html.div(
         BOOTSTRAP_CSS,
         BOOTSTRAP_SCRIPT,
         html.div(
             {'class': 'container mt-3'},
-
-            # This is our nav bar.
-            ######################################################
-            html.nav(
-                {'class': 'navbar navbar-dark navbar-expand-lg bg-dark'},
-                html.div(
-                    {'class': 'container-fluid'},
-                    html.a({'class': 'navbar-brand text-primary', 'href': '#'}, 'ReactPy-Navbar'),
-                    html.button(
-                        {
-                            'class': 'navbar-toggler',
-                            'type': 'button',
-                            'data-bs-toggle': 'collapse',
-                            'data-bs-target': '#navbarSupportedContent',
-                            'aria-controls': 'navbarSupportedContent',
-                            'aria-expanded': 'false',
-                            'aria-label': 'Toggle navigation',
-                        },
-                        html.span({'class': 'navbar-toggler-icon'}),
-                    ),
-                    html.div(
-                        {'class': 'collapse navbar-collapse', 'id': 'navbarSupportedContent'},
-                        html.ul(
-                            {'class': 'navbar-nav me-auto mb-2 mb-lg-0'},
-                            html.li(
-                                {'class': 'nav-item'},
-                                html.a(
-                                    {'class': 'nav-link active', 'aria-current': 'page', 'href': '/'},
-                                    'Home',
-                                ),
-                            ),
-                            html.li(
-                                {'class': 'nav-item'},
-                                html.a(
-                                    {'class': 'nav-link', 'aria-current': 'page', 'href': '/blog'},
-                                    'Blog',
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            ######################################################
+            NavBar({'Home': True}),
 
             # Home content starts here.
             ######################################################
@@ -116,49 +125,7 @@ def Blog():
         BOOTSTRAP_SCRIPT,
         html.div(
             {'class': 'container mt-3'},
-
-            # This is our nav bar.
-            ######################################################
-            html.nav(
-                {'class': 'navbar navbar-dark navbar-expand-lg bg-dark'},
-                html.div(
-                    {'class': 'container-fluid'},
-                    html.a({'class': 'navbar-brand text-primary', 'href': '#'}, 'ReactPy-Navbar'),
-                    html.button(
-                        {
-                            'class': 'navbar-toggler',
-                            'type': 'button',
-                            'data-bs-toggle': 'collapse',
-                            'data-bs-target': '#navbarSupportedContent',
-                            'aria-controls': 'navbarSupportedContent',
-                            'aria-expanded': 'false',
-                            'aria-label': 'Toggle navigation',
-                        },
-                        html.span({'class': 'navbar-toggler-icon'}),
-                    ),
-                    html.div(
-                        {'class': 'collapse navbar-collapse', 'id': 'navbarSupportedContent'},
-                        html.ul(
-                            {'class': 'navbar-nav me-auto mb-2 mb-lg-0'},
-                            html.li(
-                                {'class': 'nav-item'},
-                                html.a(
-                                    {'class': 'nav-link', 'aria-current': 'page', 'href': '/'},
-                                    'Home',
-                                ),
-                            ),
-                            html.li(
-                                {'class': 'nav-item'},
-                                html.a(
-                                    {'class': 'nav-link active', 'aria-current': 'page', 'href': '/blog'},
-                                    'Blog',
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            ######################################################
+            NavBar({'Blog': True}),
 
             # Blog content starts here.
             ######################################################
