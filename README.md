@@ -15,6 +15,27 @@ Creates navbar using ReactPy with Bootstrap 5 styling.
 
 This code is linked to my [article](https://energybeam.blogspot.com/2023/08/how-to-make-navigation-bar-in-reactpy.html) in blogspot.
 
+## Setup
+
+* Install Python 3.9 or above.
+* To get a copy of the whole repository
+
+```
+git clone https://github.com/fsmosca/ReactPy-Navbar.git
+```
+* cd to reactpy-navbar.
+* Install dependencies.
+
+```
+pip install -r requirements.txt
+```
+
+* Run the app.
+
+```
+uvicorn navbar:app
+```
+
 ## Credits
 
 * [ReactPy](https://github.com/reactive-python/reactpy)
