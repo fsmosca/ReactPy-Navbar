@@ -1,0 +1,2 @@
+reactpy[fastapi]
+reactpy-router
