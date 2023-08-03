@@ -13,6 +13,8 @@ Creates navbar using ReactPy with Bootstrap 5 styling.
 
 ![image](https://github.com/fsmosca/ReactPy-Navbar/assets/22366935/9ead003f-64a1-421e-ae07-adb0dbd2269a)
 
+This code is linked to my [article](https://energybeam.blogspot.com/2023/08/how-to-make-navigation-bar-in-reactpy.html) in blogstpot.
+
 ## Credits
 
 * [ReactPy](https://github.com/reactive-python/reactpy)
