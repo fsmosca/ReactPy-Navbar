@@ -3,7 +3,7 @@ Creates navbar using ReactPy with Bootstrap 5 styling.
 
 #### A. Home
 
-![image](https://github.com/fsmosca/ReactPy-Navbar/assets/22366935/262afbca-7c19-45bb-a79f-9b0a746c1b8f)
+![image](https://github.com/fsmosca/ReactPy-Navbar/assets/22366935/81f4e00c-e4ff-45a3-a5a0-a72ed71683d9)
 
 #### B. Blog
 
