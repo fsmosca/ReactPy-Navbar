@@ -16,7 +16,7 @@ BOOTSTRAP_CSS = html.link(
     {
         'rel': 'stylesheet',
         'href': 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/'
-                 'dist/css/bootstrap.min.css',
+                'dist/css/bootstrap.min.css',
         'integrity': 'sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80'
                      'zW1RWuH61DGLwZJEdK2Kadq2F9CUG65',
         'crossorigin': 'anonymous'
@@ -62,7 +62,8 @@ def NavBar(nav_attr: dict):
         {'class': 'navbar navbar-dark navbar-expand-lg bg-dark'},
         html.div(
             {'class': 'container-fluid'},
-            html.a({'class': 'navbar-brand text-primary', 'href': '#'}, 'ReactPy-Navbar'),
+            html.a({'class': 'navbar-brand text-primary', 'href': '#'},
+                   'ReactPy-Navbar'),
             html.button(
                 {
                     'class': 'navbar-toggler',
@@ -76,7 +77,8 @@ def NavBar(nav_attr: dict):
                 html.span({'class': 'navbar-toggler-icon'}),
             ),
             html.div(
-                {'class': 'collapse navbar-collapse', 'id': 'navbarSupportedContent'},
+                {'class': 'collapse navbar-collapse',
+                 'id': 'navbarSupportedContent'},
                 html.ul(
                     {'class': 'navbar-nav me-auto mb-2 mb-lg-0'},
                     NavItem('Home', '/', nav_attr.get('Home', False)),
@@ -145,7 +147,7 @@ def Blog():
                        In lobortis elit sit amet semper.'''
                 ),
             ),
-        ),        
+        ),
     )
 
 
